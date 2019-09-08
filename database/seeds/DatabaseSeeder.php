@@ -11,6 +11,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        Model::unguard();
+
+        $this->call(ChatSeeder::class);
+        $this->call(ParticipanteSeeder::class);
+        $this->call(ParticipanteSeeder::class);
+        $this->call(MensagemSeeder::class);
+        $this->call(MensagemSeeder::class);
+        $this->call(MensagemSeeder::class);
+        $this->call(MensagemSeeder::class);
+
+        Model::reguard();
     }
 }

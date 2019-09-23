@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $users = UserController::index()->except(Auth::id());
+        $users = UserController::showAllExceptMyself();
         return view('home', compact('users'));
     }
 }

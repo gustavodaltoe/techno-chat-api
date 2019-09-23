@@ -17,17 +17,16 @@
 
 Route::group(array('prefix' => 'chatApi'), function () 
 {
-    Route::get('/', function() {
-        return view('welcome');
-    });
-
     Route::resource('chat', 'ChatController');
     Route::resource('participante', 'ParticipanteController');
 });
 
-Route::get('/', function () {
-    return redirect('chatApi');
-});
 Auth::routes();
 
+Route::get('/', function() {
+    return view('welcome');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/user/all', 'UserController@index');

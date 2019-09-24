@@ -11,14 +11,16 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Route::group(array('prefix' => 'chatApi'), function () 
 {
     Route::resource('chat', 'ChatController');
     Route::resource('participante', 'ParticipanteController');
+    Route::get('/user/all', 'UserController@index');        
+    Route::post('/chat/create', 'ChatController@store');
+
+    Route::get('/mensagens', 'ChatController@fetchMessages');
+    Route::post('/mensagens', 'ChatController@sendMessage');
 });
 
 Auth::routes();
@@ -28,5 +30,5 @@ Route::get('/', function() {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/chat', 'ChatController@index');
 
-Route::get('/user/all', 'UserController@index');

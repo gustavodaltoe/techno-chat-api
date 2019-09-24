@@ -13,22 +13,16 @@ class CreateMensagemTable extends Migration
      */
     public function up()
     {
-        Schema::create('mensagem', function (Blueprint $table) {
-            $table->increments('id');
-            $table->longText('conteudo');
-            $table->integer('fk_id_participante')->unsigned();
-            $table->foreign('fk_id_participante')
-                ->references('id')
-                ->on('participante')
-                ->onDelete('cascade');
-            $table->integer('fk_id_chat')->unsigned();
-            $table->foreign('fk_id_chat')
-                ->references('id')
-                ->on('chat')
-                ->onDelete('cascade');
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        if (!Schema::hasTable('mensagem')) {
+            Schema::create('mensagem', function (Blueprint $table) {
+                $table->increments('id');
+                $table->longText('conteudo');
+                $table->integer('id_user')->unsigned();
+                $table->integer('id_chat')->unsigned();
+                $table->timestamps();
+                $table->softDeletes();
+            });
+        }
     }
 
     /**

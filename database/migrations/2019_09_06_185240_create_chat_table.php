@@ -13,11 +13,13 @@ class CreateChatTable extends Migration
      */
     public function up()
     {
-        Schema::create('chat', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        if (!Schema::hasTable('chat')) {
+            Schema::create('chat', function (Blueprint $table) {
+                $table->increments('id');
+                $table->timestamps();
+                $table->softDeletes();
+            });
+        }
     }
 
     /**

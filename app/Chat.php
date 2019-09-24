@@ -9,9 +9,10 @@ class Chat extends Model
     protected $table = 'chat';
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
-    public function participantes()
+    public function users()
     {
-        return $this->hasMany('App\Participante');
+        return $this->hasMany('App\User')
+                        ->as('participantes');
     }
     public function mensagens()
     {

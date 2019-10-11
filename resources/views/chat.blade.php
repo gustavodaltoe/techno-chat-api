@@ -11,7 +11,7 @@
                 <div class="panel-heading">Chats</div>
 
                 <div class="panel-body">
-                    <chat-messages :messages="messages"></chat-messages>
+                    <chat-messages :mensagens="mensagens"></chat-messages>
                 </div>
                 <div class="panel-footer">
                     <chat-form

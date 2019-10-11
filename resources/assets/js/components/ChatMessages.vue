@@ -1,10 +1,10 @@
 <template>
     <ul class="chat">
-        <li class="left clearfix" v-for="mensagem in mensagens">
+        <li class="left clearfix" v-for="mensagem in mensagens" v-bind:key="mensagem.id">
             <div class="chat-body clearfix">
                 <div class="header">
                     <strong class="primary-font">
-                        {{ mensagem.participante.user.name }}
+                        {{ mensagem.user.name }}
                     </strong>
                 </div>
                 <p>

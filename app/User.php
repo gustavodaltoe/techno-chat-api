@@ -28,12 +28,12 @@ class User extends Authenticatable
     ];
 
     public function mensagens() {
-        return $this->hasMany('App\Mensagem');
+        return $this->hasMany(Mensagem::class);
     }
 
-    public function chats() {
-        return $this->belongsToMany('App\Chat')
-                        ->as('participantes')
-                        ->withTimestamps();
-    }
+    // public function chats() {
+    //     return $this->belongsToMany(Chat::class)
+    //                     ->as('participantes')
+    //                     ->withTimestamps();
+    // }
 }

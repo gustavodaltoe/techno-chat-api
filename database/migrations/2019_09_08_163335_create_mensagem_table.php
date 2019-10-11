@@ -17,8 +17,8 @@ class CreateMensagemTable extends Migration
             Schema::create('mensagem', function (Blueprint $table) {
                 $table->increments('id');
                 $table->longText('conteudo');
-                $table->integer('id_user')->unsigned();
-                $table->integer('id_chat')->unsigned();
+                $table->integer('user_id')->unsigned();
+                // $table->integer('id_chat')->unsigned();
                 $table->timestamps();
                 $table->softDeletes();
             });

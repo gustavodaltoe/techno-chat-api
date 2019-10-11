@@ -28,7 +28,7 @@ class ChatController extends Controller
      * @return Mensagem
      */
     public function fetchMessages() {
-        return Mensagem::with('user')::with('participante')->get();
+        return Mensagem::with('user')->get();
     }
 
     /**
@@ -41,13 +41,15 @@ class ChatController extends Controller
     {
         $user = Auth::user();
 
-
         // $chat = $request->input('chatID');
         // $participante = ;
 
-        $mensagem = $user->messages()->create([
+        $mensagem = $user->mensagens()->create([
             'conteudo' => $request->input('conteudo')
         ]);
+
+
+        broadcast(new MessageSent($user, $mensagem))->toOthers();
 
         return ['status' => 'Mensagem enviada!!'];
     }

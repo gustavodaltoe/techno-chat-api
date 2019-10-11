@@ -24,7 +24,7 @@
             sendMessage() {
                 this.$emit('messagesent', { 
                     user: this.user,
-                    mensagem: this.newMessage
+                    conteudo: this.newMessage
                 });
 
                 this.newMessage = ''
